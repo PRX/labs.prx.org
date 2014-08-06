@@ -1,0 +1,128 @@
+---
+layout: post
+status: publish
+published: true
+title: 'APN on Rails Gem Update: Multi-App Support, Group Notifications, and Pull
+  Notifications'
+author:
+  display_name: Rebecca Nesson
+  login: rebecca
+  email: rebecca@prx.org
+  url: ''
+author_login: rebecca
+author_email: rebecca@prx.org
+wordpress_id: 60
+wordpress_url: http://labs.prx.org/?p=60
+date: '2010-10-07 17:21:06 -0500'
+date_gmt: '2010-10-07 17:21:06 -0500'
+categories:
+- Mobile
+tags: []
+comments:
+- id: 143
+  author: Adam Jack
+  author_email: wildobs@wildobs.com
+  author_url: http://wildobs.com
+  date: '2011-01-11 15:07:12 -0600'
+  date_gmt: '2011-01-11 15:07:12 -0600'
+  content: "Hey Rebecca,\r\n\r\nThanks for taking over this gem, and the wonderful
+    work you do for PRX.\r\n\r\nI am interested in learning this gem, and want to
+    integrate it into my site. I have multiple applications and an set of models of
+    my own (for users, devices, etc.) so I plan to build relationships from my models
+    to these. \r\n\r\nIs there anywhere I can look for more information (a fuller
+    sample) on how to work with the new multiple app feature, and grouping? I am about
+    to start, and much as simple notification appear relatively simple, feel I am
+    just diving in blind with groups (batchs?) and haven't found any samples.\r\n\r\nEven
+    for basic notifications I have some questions. I assume I create the APN:Device
+    only once, and manage&#47;purge stale ones myself (if the token updates prior
+    to feedback removing it.) Still, if I add a relationship to one of my models to
+    this model, might it disappear automatically on my due to feedback? Can I detect
+    that?\r\n\r\nAs for GroupNotifications &amp; DeviceGroup, I really don't know
+    where to start other than with guessing.\r\n\r\nAs such, any pointers&#47;samples&#47;postings
+    you can do on these would be appreciated."
+- id: 146
+  author: Adam Jack
+  author_email: wildobs@wildobs.com
+  author_url: http://wildobs.com
+  date: '2011-01-11 21:39:48 -0600'
+  date_gmt: '2011-01-11 21:39:48 -0600'
+  content: "The README sample (at bottom of page) gives:\r\n\r\n    APN::App.create(:name
+    => \"My App\", :apn_dev_cert => \"PASTE YOUR DEV CERT HERE\", :apn_prod_cert =>
+    \"PASTE YOUR PROD CERT HERE\")\r\n\r\nBut there is no 'name' column generated
+    by the migrations."
+- id: 150
+  author: Adam Jack
+  author_email: wildobs@wildobs.com
+  author_url: http://wildobs.com
+  date: '2011-01-12 18:02:48 -0600'
+  date_gmt: '2011-01-12 18:02:48 -0600'
+  content: "Whew, I had some challenges with this ... but seem to have it working.
+    I don't know if others are struggling with a fresh install using the 'multiple
+    app' approach, but I ended up adding this to environment.rb allowing me to zap
+    away the global certifications (which I am not using.)\r\n\r\nrequire 'configatron'\r\nconfigatron.configure_from_yaml(File.join(RAILS_ROOT,
+    'config', \"#{RAILS_ENV}_apn_on_rails.yml\"))\r\nrequire 'apn_on_rails'\r\n\r\nexample
+    config&#47;development_apn_on_rails.yml\r\n\r\napn.passphrase: Not Sure if This
+    is Needed or Not\r\napn.cert:\r\n\r\napn.feedback.passphrase: As Above\r\napn.feedback.cert:\r\n\r\nI
+    am sure it isn't the most elegant but it stopped me getting crashes from the rails
+    task when there was no valid global cert."
+- id: 151
+  author: Adam Jack
+  author_email: wildobs@wildobs.com
+  author_url: http://wildobs.com/
+  date: '2011-01-12 19:04:05 -0600'
+  date_gmt: '2011-01-12 19:04:05 -0600'
+  content: "One addendum to that last posting. Don't ask me why, but while I was cleaning
+    up my debug I found a side-effect was needed for this fix to work.\r\n\r\nputs
+    \"Configuration: #{configatron.apn.cert.blank?}\"\r\n\r\nSomehow this line was
+    (perhaps) loading the configuration before apn_on_rails used it, perhaps overriding
+    a default or something, but I ended up adding this line before the require apn_on_rails,
+    and that seemed to cause the desired side effect.\r\n\r\nconfigatron.apn.cert.blank?"
+- id: 169
+  author: Charlie Woloszynski
+  author_email: charles.woloszynski@handheldmedia.us
+  author_url: ''
+  date: '2011-01-20 22:04:19 -0600'
+  date_gmt: '2011-01-20 22:04:19 -0600'
+  content: "I am looking at using your Gem (thank you for all the hard work, it looks
+    great!) and I am trying to understand how to extend this to meet my needs.  \r\n\r\nI
+    need to associated each APN:Device with a user and a user may have multiple devices.
+    \ Generally, I'd simply alter the APN:Device class to have a belongs_to: user
+    line.  But, as a Gem, I don't want to start altering the code.  \r\n\r\nIs there
+    a need to provide this within the Gem or can I use some form of derived class
+    from APN:Device to accomplish this?  I'm not sure how a derived class would affect
+    the database design.  \r\n\r\nThoughts on how to best accomplish this?\r\n\r\nThanks
+    in advance.\r\n\r\nCharlie"
+- id: 206
+  author: chris
+  author_email: chris@prx.org
+  author_url: http://prx.org/
+  date: '2011-02-03 18:20:00 -0600'
+  date_gmt: '2011-02-03 18:20:00 -0600'
+  content: "Hey Charlie,\r\n\r\nThere are a couple of ways you can attack this from
+    the rails perspective. First, you can fork the gem on github, make whatever modifications
+    you need, and then point at your fork. This is not the ideal way to go, but it
+    certainly is an option.\r\n\r\nYou can also create your own migration and do some
+    monkey patching in a rails initializer.\r\n\r\nThe last option, which tastes the
+    least bad to me, is to simply create an additional model which belongs_to :user
+    and belongs_to :device, :class_name => 'APN::Device'. This allows you to add any
+    additional functionality you need. You can delegate any methods currently available
+    on APN::Device to the device associated with the record, and you can add additional
+    device functionality. Perhaps call it a UserDevice?\r\n\r\nThat way, you can also
+    do (in your User class)\r\nhas_many :devices, :class_name => 'UserDevice'.\r\n\r\nLet
+    me know if this doesn't answer your questions."
+---
+<p>I'm excited to announce the release of version 0.4.0 of the APN_on_Rails gem!  You can get it on <a href="http:&#47;&#47;github.com&#47;PRX&#47;apn_on_rails">github<&#47;a> or <a href="https:&#47;&#47;rubygems.org&#47;gems&#47;apn_on_rails">rubygems<&#47;a>.<&#47;p> </p>
+<p>When we started developing the <a href="http:&#47;&#47;www.prx.org&#47;this-american-life-mobile">This American Life iPhone app<&#47;a> I was very happy to find <a href="http:&#47;&#47;www.metabates.com&#47;">Mark Bates'<&#47;a> APN_on_Rails gem to help handle the server side aspects of communicating with Apple's Push Notification servers.  It handles all of the details of communicating with Apple in compliance with their authorization, data format, and feedback.  Since Mark was moving on to other projects and we were working actively with the gem, he handed it over to us.  We are now releasing a new version with some cool new features: <&#47;p></p>
+<h3>Multi-App Support<&#47;h3></p>
+<p>In the previous version of the gem a single Rails app was configured to handle push notifications for a single iPhone app.  We found it useful to be able to have a single Rails app manage the push notifications for all of our iPhone apps.  To handle this in the gem we model apps and store the certificates in the database.  Devices and notifications are associated with apps. <&#47;p> </p>
+<h3>Group Notifications<&#47;h3></p>
+<p>In the <a href="http:&#47;&#47;www.prx.org&#47;this-american-life-mobile">This American Life app<&#47;a> we primarily used push notifications to send reminders to users prior to the airing of the live stream of the show in the app.  (N.B.  Now that Apple has implemented local notifications, they should be used for this kind of recurring notification task.)  In order to do this we added the ability to group devices together (in this case, the set of devices whose users had opted-in to receiving reminders) and to create notifications targeted at a group rather than just at a single device.  This allows editing of the content of a notification to a group without having to find and edit each individual notification and other similar benefits.  </p>
+<h3>Pull Notifications<&#47;h3> </p>
+<div style="float:left;margin-right:10px;margin-bottom:10px;">
+[caption id="attachment_83" align="alignnone" width="217" caption="A screen shot of a pull notification."]<a href="http:&#47;&#47;labs.prx.org&#47;2010&#47;10&#47;07&#47;apn_on_rails_0-4-0&#47;pull_notification&#47;" rel="attachment wp-att-83"><img src="http:&#47;&#47;labs.prx.org&#47;wp-content&#47;uploads&#47;2010&#47;10&#47;pull_notification-217x300.png" alt="Screenshot of Pull Notification" title="pull_notification" width="217" height="300" class="size-medium wp-image-83" &#47;><&#47;a>[&#47;caption]<&#47;div></p>
+<p>This American Life chose to use a single push notification to notify app users about a particular pledge drive.  Because of the disruptive nature of push notifications to a user's phone experience, many users were annoyed to receive the notification in this way.  In response, we developed a new feature of the gem called Pull Notifications. <&#47;p></p>
+<p>Pull notifications are managed on the server side in much the same way as push notifications.  An app manager creates a pull notification for a particular app including a title, text content and optionally a link.  The client app can then query the server to retrieve the most recent pull notification that it has not seen.  In our apps we perform this query after launch or foregrounding of the app and display the resulting notification in an alert.  If it has an associated link we offer the user the option of visiting linked location in an in-app browser. <&#47;p></p>
+<p>Imagine the difference in reaction to a notification about a pledge drive when done in this way rather than using push notifications.  It is no longer disruptive and it is by design targeted only to active users of the application.  This feature expands the toolbox for app managers to allow them to choose the type of notification best suited to the message they want to send.  <&#47;p></p>
+<p>We anticipate various future improvements to this feature perhaps including: allowing the client to retrieve a queue of unread messages rather than just the most recent, tracking devices on the server side so the client does not have to keep track of the date of its last message, and adding custom properties similar to the ones available on push notifications. <&#47;p></p>
+<p><center>* * *<&#47;center></p>
+<p>The feature changes in this version of the gem are fairly extensive.  If you are upgrading your gem and run into bugs or backwards compatibility issues, please let us know so we can address them.  If you implement bug fixes or other changes that you want us to incorporate please fork the project, write your patch with tests, and send a pull request. <&#47;p></p>
