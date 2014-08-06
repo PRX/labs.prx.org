@@ -1,7 +1,8 @@
 # Site settings
-title: PRX Labs
+title: prx labs
 email: chris@prx.org
-description: "Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description."
+description: "prx labs is the hub of technology and innovation at PRX, an award-winning public media company. "
+description_html: "<a href='/about'>prx labs</a> is the hub of technology and innovation at <a href='http://prx.org'>PRX</a>, an award-winning public media company."
 baseurl: ""
 url: "http://github.prx.io"
 twitter_username: prx

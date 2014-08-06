@@ -60,6 +60,18 @@ a:visited { color: #205caa; }
   z-index: 1;
 }
 
+.site-title:before {
+  content: '';
+  display: inline-block;
+  width: 20px;
+  height: 40px;
+  margin-bottom: -3px;
+  background-image: url('../images/labs.png');
+  background-size: 20px auto;
+  background-position: center bottom;
+  background-repeat: no-repeat;
+}
+
 .site-nav {
   float: right;
   line-height: 56px;
