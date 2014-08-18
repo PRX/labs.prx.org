@@ -1,0 +1,15 @@
+---
+layout: post
+title: Growing the Ranks of Female Devs
+date: '2012-09-06 13:34:41 -0400'
+categories:
+- Ruby on Rails
+- Ruby
+- Rails
+author: rebeccanesson
+---
+<p>At PRX I am the only woman on a team of six.  With a team that size, it could be a coincidence that I'm the only one.  But it is not.  In most companies with six developers, zero would be female.  I'm here at PRX because of my skills but also because PRX cares about having and encouraging a diverse workplace.  We took that beyond our office a few weeks ago when we participated in a full-day free workshop focused on teaching Ruby on Rails development to interested women.  In one evening and one long day we taught 44 students enough so that by the end of the workshop they had each deployed their own web application live on the Internet.  You can read an interesting and thorough recap of the event, replete with pictures, feedback, etc., <a href="http://www.railsbridgeboston.org/blog/2012_aug_recap">here</a>.  Also, if you're interested in participating, we plan to do another workshop with the same format later this fall.  You can find out more on <a href=" http://www.railsbridgeboston.org/">our site</a>.</p>
+<p><img class="alignleft" title="Anita Teaching Ruby" src="http://www.railsbridgeboston.org/images/aug2012/anita.jpg" alt="" width="384" height="257" /></p>
+<p>PRXers had roles in every aspect of the workshop.  Dan Choi, a former PRX employee and contractor and permanent PRX friend, was the driving force behind the workshop and the main organizer.  We developed <a href="http://www.railsbridgeboston.org/curriculum/curriculum_toc">the curriculum</a> with a team of volunteers from BostonRB including Andrew K., Chris R. and me from the PRX team.  I was the main lecturer/teacher for the workshop,  Andrew was a teaching assistant and lecturer, and Kathryn Bennett, a tech intern at PRX, also TA'ed. Genevieve, who works on the content side of PRX and does a lot of work in our content management system, participated as a student.  And PRX backed the event financially as one of the sponsors.</p>
+<p>The main goal of the event was to encourage people with no previous experience to get involved with Ruby/Rails development, and I believe we succeeded.  But for me there was another positive outcome.  In putting on the event we pulled together a team of volunteers, teachers, and sponsors who all see the importance of an inclusive, diverse community of developers.  At this one event I met and worked with over ten other female Ruby/Rails developers many of whom work in places where they are the only girl.  I had only met two of them before, and I was frankly but happily surprised that there were so many of us.  It helped show me that the community we were envisioning is already nascent among the women who are working as developers and the colleagues, companies, and organizations that are supporting us.<img class="alignright" title="Michael Durrant and workshop participants" src="http://www.railsbridgeboston.org/images/aug2012/michael_durrant.jpg" alt="" width="470" height="314" /></p>
+<p>I'm proud of what we accomplished and of PRX for having a strong hand in it.</p>

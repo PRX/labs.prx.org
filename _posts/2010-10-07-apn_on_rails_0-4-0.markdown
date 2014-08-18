@@ -1,0 +1,24 @@
+---
+layout: post
+title: 'APN on Rails Gem Update: Multi-App Support, Group Notifications, and Pull
+  Notifications'
+date: '2010-10-07 17:21:06 -0400'
+categories:
+- Mobile
+author: rebeccanesson
+---
+<p>I'm excited to announce the release of version 0.4.0 of the APN_on_Rails gem!  You can get it on <a href="http://github.com/PRX/apn_on_rails">github</a> or <a href="https://rubygems.org/gems/apn_on_rails">rubygems</a>.</p>
+<p>When we started developing the <a href="http://www.prx.org/this-american-life-mobile">This American Life iPhone app</a> I was very happy to find <a href="http://www.metabates.com/">Mark Bates'</a> APN_on_Rails gem to help handle the server side aspects of communicating with Apple's Push Notification servers.  It handles all of the details of communicating with Apple in compliance with their authorization, data format, and feedback.  Since Mark was moving on to other projects and we were working actively with the gem, he handed it over to us.  We are now releasing a new version with some cool new features: </p>
+<h3>Multi-App Support</h3>
+<p>In the previous version of the gem a single Rails app was configured to handle push notifications for a single iPhone app.  We found it useful to be able to have a single Rails app manage the push notifications for all of our iPhone apps.  To handle this in the gem we model apps and store the certificates in the database.  Devices and notifications are associated with apps. </p>
+<h3>Group Notifications</h3>
+<p>In the <a href="http://www.prx.org/this-american-life-mobile">This American Life app</a> we primarily used push notifications to send reminders to users prior to the airing of the live stream of the show in the app.  (N.B.  Now that Apple has implemented local notifications, they should be used for this kind of recurring notification task.)  In order to do this we added the ability to group devices together (in this case, the set of devices whose users had opted-in to receiving reminders) and to create notifications targeted at a group rather than just at a single device.  This allows editing of the content of a notification to a group without having to find and edit each individual notification and other similar benefits.  </p>
+<h3>Pull Notifications</h3>
+<div style="float:left;margin-right:10px;margin-bottom:10px;">
+[caption id="attachment_83" align="alignnone" width="217" caption="A screen shot of a pull notification."]<a href="http://labs.prx.org/2010/10/07/apn_on_rails_0-4-0/pull_notification/" rel="attachment wp-att-83"><img src="http://labs.prx.org/wp-content/uploads/2010/10/pull_notification-217x300.png" alt="Screenshot of Pull Notification" title="pull_notification" width="217" height="300" class="size-medium wp-image-83" /></a>[/caption]</div>
+<p>This American Life chose to use a single push notification to notify app users about a particular pledge drive.  Because of the disruptive nature of push notifications to a user's phone experience, many users were annoyed to receive the notification in this way.  In response, we developed a new feature of the gem called Pull Notifications. </p>
+<p>Pull notifications are managed on the server side in much the same way as push notifications.  An app manager creates a pull notification for a particular app including a title, text content and optionally a link.  The client app can then query the server to retrieve the most recent pull notification that it has not seen.  In our apps we perform this query after launch or foregrounding of the app and display the resulting notification in an alert.  If it has an associated link we offer the user the option of visiting linked location in an in-app browser. </p>
+<p>Imagine the difference in reaction to a notification about a pledge drive when done in this way rather than using push notifications.  It is no longer disruptive and it is by design targeted only to active users of the application.  This feature expands the toolbox for app managers to allow them to choose the type of notification best suited to the message they want to send.  </p>
+<p>We anticipate various future improvements to this feature perhaps including: allowing the client to retrieve a queue of unread messages rather than just the most recent, tracking devices on the server side so the client does not have to keep track of the date of its last message, and adding custom properties similar to the ones available on push notifications. </p>
+<p><center>* * *</center></p>
+<p>The feature changes in this version of the gem are fairly extensive.  If you are upgrading your gem and run into bugs or backwards compatibility issues, please let us know so we can address them.  If you implement bug fixes or other changes that you want us to incorporate please fork the project, write your patch with tests, and send a pull request. </p>
