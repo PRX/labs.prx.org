@@ -1,0 +1,35 @@
+---
+layout: post
+title: The Count!
+date: '2010-10-06 14:47:26 -0400'
+categories:
+- The Count
+author: chrisrhoden
+permalink: /2010/10/06/the-count
+---
+<p>I recently got the opportunity to start playing with <a href="http://nodejs.org/">Node.JS</a> for an internal project here at PRX. It's code-named The Count, and it's named after <a href="http://www.youtube.com/watch?v=GMODAndeyNE">a fairly well known arithromaniacal vampire</a>.</p>
+<p>I suspect that a little bit of background is necessary. We have been collecting information about various activities on PRX.org for a while, but there are a few benefits to splitting these metrics out to a separate application. First, we don't need to worry quite so much about the performance of our application, and second, we don't need to add awkward api hooks to get meaningful tracking across a large and potentially growing number of properties. Additionally, our previous analytics solution was somewhat indistinguishable from our social actions system (the system that allows us to display recent activity next to users and pieces), which was adversely affecting the performance of both.</p>
+<p>As a result, The Count is designed to be a standalone analytics application, very similar to something like Google Analytics - that is, you put a snippet of javascript on your page and it grabs and keeps track of visitor information. We decided to roll our own solution rather than relying on a third party because it allows us to do a couple of things that are important to us.</p>
+<ol>
+<li>More tightly integrate with a reporting solution (and thus get some data we wouldn't otherwise be able to get), and</li>
+<li>Get unrestricted access to that report data.</li>
+</ol>
+<p>We already have a system in place for turning raw data into meaningful reports, and the set of problems there is perhaps appropriate for another post. I will be focusing, instead, on the other side of the problem: recording the data.</p>
+<p>We had a few problems that we needed to solve. First, we wanted to make sure that it would not affect page load time, and second, we wanted to be able to deal with potentially huge datasets. Somewhat inspired by <a href="http://documentcloud.github.com/pixel-ping/">Pixel Ping</a>, but fully aware that we needed something a little bit more powerful, we opted to build a pixel-tracking system with Node.JS.</p>
+<p>Pixel-tracking systems are nice because they don't block the DOM loading. It doesn't matter where in your page you put your image, the rest of the page will continue to load while the image is being requested. This is not the case for JavaScript includes, which block DOM until they have loaded (except when using the little-known and imporperly supported DEFER attribute). Node.JS applications are nice because they are fast. Many, many articles have been written on why Node.JS is fast, but it bears a very small repeat here.</p>
+<p>In The Count, we are able to respond to requests for our pixel by immediately returning the pixel and then closing the connection, <em>before</em> we get to the (relatively) slow process of storing a request in the database. This makes The Count incredibly quick, with large datasets having nearly no effect on response time.</p>
+<p>To give an example of how this works, a simplified version of The Count might look like the following:</p>
+<p>[javascript]<br />
+server = http.createServer(function(request, response){<br />
+  // First, we send our image and terminate the connection...<br />
+  response.writeHead(200, { 'Content-Type'  : 'image/gif'<br />
+                          , 'Cache-Control' : 'private, no-cache, proxy-revalidate'<br />
+                          , 'Content-Length': 43<br />
+                          });<br />
+  response.end(theCount.IMAGE);<br />
+  // ...and then we send the request off to be logged.<br />
+  theCount.log(request, pool);<br />
+});<br />
+[/javascript]</p>
+<p>Now, this technique is not new, and I certainly do not want to suggest that it is. That having been said, this is a near perfect use of the simplicity Node.JS brings to writing high-performance servers. What Node.JS provided for us, in this situation, was a great deal of control over our connection lifecycle without having to break out a low level language.</p>
+<p>I may be talking about the other side of our analytics system at some point in the future, but for now, that's all we're going to show.</p>
