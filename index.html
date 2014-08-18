@@ -9,7 +9,7 @@ layout: default
   <ul class="posts">
     {% for post in site.posts %}
       <li>
-        <span class="post-date">{{ post.date | date: "%b %-d, %Y" }}</span>
+        <span class="post-date">{{ post.date | date: "%b %-d, %Y" }}{% if post.author %} <a href="https://github.com/{{ post.author }}"><span class="avatar" data-author="{{ post.author }}"></span>{{ post.author }}</a>{% endif %}</span>
         <a class="post-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
         {% if post == site.posts[0] %}
           {{ post.excerpt }}
