@@ -23,12 +23,13 @@ posts.
 
 ### some (non-technical) background
 
-If you've heard of PRX, more than likely it was in the context of an
-episode of [The Moth podcast](http://themoth.org), or more recently the end of [This American Life](http://thislife.org),
-which we distribute (over the internet, more on that in a future post) to public
-radio stations around the country. We also have a history building [native mobile
-apps](http://apps.prx.org) for national radio shows and public radio stations.
-Along with
+If you've heard of PRX, more than likely it was in the context of an episode of
+[The Moth podcast](http://themoth.org), or more recently at the end of
+[This American Life](http://thislife.org), which we distribute (over the
+internet, more on that in a future post) to public radio stations around the
+country. We also have a history building
+[native mobile apps](http://apps.prx.org) for national radio shows and public
+radio stations. Along with
 [other projects and initiatives that I don't have time to list](http://www.prx.org/projects),
 as well as our whole set of content initiatives that don't involve any internal
 engineering, it's easy to forget our oldest and most important project: the
