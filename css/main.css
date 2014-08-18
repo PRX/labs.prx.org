@@ -156,19 +156,54 @@ a:visited { color: rgb(112, 142, 151); }
 /* Home styles */
 /* ----------------------------------------------------------*/
 
-.home h1 { margin-bottom: 25px; }
+.home h2 {
+  margin-bottom: 25px;
+  padding-top: 10px;
+  border-top: 1px solid #ccc;
+  color: #999;
+}
 
 .posts { list-style-type: none; }
 
-.posts li { margin-bottom: 30px; }
+.posts li {
+  margin-bottom: 30px;
+  border-bottom: 1px solid #EEE;
+  padding-bottom: 20px;
+}
+
+.posts li:last-child {
+  border-bottom: none;
+}
 
 .posts .post-link {
   font-size: 24px;
   letter-spacing: -1px;
-  line-height: 1;
+  line-height: 46px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  width: 70%;
+  display: inline-block;
+}
+
+.posts .meta {
+  float: right;
+  max-width: 30%;
+  text-align: right;
+  margin-left: 15px;
+}
+
+.posts .meta a {
+  font-size: 10px;
+}
+
+.posts .meta .avatar {
+  width: 13px;
+  height: 13px;
 }
 
 .posts .post-date {
+  width: 100%;
   display: block;
   font-size: 15px;
   color: #818181;
@@ -379,6 +414,33 @@ a:visited { color: rgb(112, 142, 151); }
 @media screen and (max-width: 600px) {
 
   .wrap { padding: 0 12px; }
+
+  .posts li {
+    position: relative;
+    padding-bottom: 30px;
+    /*margin-bottom: 10px;*/
+  }
+
+  .posts .post-link {
+    margin-bottom: 15px;
+    line-height: 1.2;
+    width: 100%;
+  }
+
+  .posts .meta {
+    float: none;
+    max-width: none;
+    text-align: left;
+    margin-left: 0;
+    position: absolute;
+    bottom: 25px;
+    left: 0;
+  }
+
+  .posts  .post-date {
+    display: inline;
+    font-size: 10px;
+  }
 
   .site-nav {
     position: fixed;
