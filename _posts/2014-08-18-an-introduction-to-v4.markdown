@@ -23,7 +23,7 @@ posts.
 
 ### some (non-technical) background
 
-If you've even heard of PRX, more than likely it was in the context of an
+If you've heard of PRX, more than likely it was in the context of an
 episode of [The Moth podcast](http://themoth.org), or more recently the end of [This American Life](http://thislife.org),
 which we distribute (over the internet, more on that in a future post) to public
 radio stations around the country. We also have a history building [native mobile
