@@ -7,6 +7,7 @@ categories:
 - Javascript
 - Node.js
 author: chrisrhoden
+permalink: /2012/05/07/pbs-frontline-qr-code-hack
 ---
 <p>Hey everyone! I recently built a system which was designed to turn your phone into a sort of smart remote control which works over the internet. This is the first part of a two-part post about that system, where I discuss what I built. In a future post, I will discuss how everything was put together from a much more technical side.</p>
 <p>A couple of weeks ago, I participated in a hackfest which was thrown by the folks at Frontline. The goal was to spend a few hours putting together a glimpse of the future of documentary storytelling. Four projects came out of the day, but I would like to talk about the project I worked on.</p>

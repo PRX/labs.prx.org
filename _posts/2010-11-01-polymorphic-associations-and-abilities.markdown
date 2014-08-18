@@ -6,6 +6,7 @@ categories:
 - Ruby
 - Rails
 author: chrisrhoden
+permalink: /2010/11/01/polymorphic-associations-and-abilities
 ---
 <p>I recently had a conversation with an old friend who is in the process of learning Ruby on Rails. He had run into a problem with polymorphic associations and I recommended he try something I had done for another project using polymorphic associations. It turns out that it was a good solution to the problem, and since I haven't seen the pattern talked about elsewhere, I thought I should get it down on paper.</p>
 <p>For the sake of example, let's say we're building a Tumblr clone, where the polymorphic association lives inside of a Post model, and the different kinds of posts are all models unto themselves. We could use single table inheritance, but maybe the models vary enough or the storage method differs enough that that's a bad idea. For that matter, Single Table Inheritance often just feels wrong.</p>

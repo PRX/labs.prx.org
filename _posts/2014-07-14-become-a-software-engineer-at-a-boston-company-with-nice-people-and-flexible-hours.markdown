@@ -6,6 +6,7 @@ date: '2014-07-14 11:20:49 -0400'
 categories:
 - Jobs
 author: driki
+permalink: /2014/07/14/become-a-software-engineer-at-a-boston-company-with-nice-people-and-flexible-hours
 ---
 <h2 style="color: #000000;">What is the company?</h2>
 <p style="color: #444444;">At <a style="color: #1d80be;" href="http://www.prx.org/">PRX</a> you will find talented, passionate, and thoughtful people who create products that bring millions of listeners to shows created by public radio and podcast producers. We also work with top-tier shows like This American Life, The Moth, and 99% Invisible.</p>

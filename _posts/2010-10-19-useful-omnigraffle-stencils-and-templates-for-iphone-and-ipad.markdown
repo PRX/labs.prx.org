@@ -8,6 +8,7 @@ categories:
 - iPhone
 - iPad
 author: driki
+permalink: /2010/10/19/useful-omnigraffle-stencils-and-templates-for-iphone-and-ipad
 ---
 <p>I've been using <a href="http://www.omnigroup.com/products/omnigraffle/">OmniGraffle Pro</a> for most of my iPhone and iPad wireframe jobs. I love the product, simple and easy to use. One of the things that I dig the most about it is the vibrant stencil and template community at <a href="http://graffletopia.com/">http://graffletopia.com/</a>. There are a number of stencils and templates that you can find out on the internet. The two that I've found to be most useful over the past few months are:</p>
 <ul>

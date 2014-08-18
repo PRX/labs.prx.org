@@ -7,6 +7,7 @@ categories:
 - Wireframes
 - OmniGraffle
 author: driki
+permalink: /2010/11/12/interactive-mobile-apps-wireframes-with-omnigraffle-pdf-goodreader
 ---
 <p>I'm late to the game in <a href="http://www.bioneural.net/2007/06/22/hyperlinked-pdfs-made-with-omnigraffle/">figuring out that the Action property existed in OmniGraffle</a> but I did find what I think is a pretty cool way to create super quick, easy to build, interactive mobile app demos to test out concepts. I've been working quite a bit on the user experience side for our iPhone/iPad projects and I mentioned the <a href="http://labs.prx.org/2010/10/19/useful-omnigraffle-stencils-and-templates-for-iphone-and-ipad/">awesome OmniGraffle iPhone and iPad stencils</a> that I've been using in a previous post. When thinking about ways to test out some ideas we've been floating for the This American Life iPad app that we've been designing, I discovered the "Action" property for objects in OmniGraffle. This property gives us great power.</p>
 <p>You'll want to create multiple canvases in your demo document to really see the benefit.</p>

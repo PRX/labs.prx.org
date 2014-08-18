@@ -5,6 +5,7 @@ date: '2011-04-07 12:46:57 -0400'
 categories:
 - Introductions
 author: farski
+permalink: /2011/04/07/the-new-chris-aka-farski
 ---
 <div>
 <p><em>(this is a crosspost from the <a href="http://blog.prx.org">fabulous prx blog</a>)</em></p>

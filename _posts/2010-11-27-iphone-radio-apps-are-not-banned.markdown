@@ -7,6 +7,7 @@ categories:
 - iPhone
 - iPad
 author: kookster
+permalink: /2010/11/27/iphone-radio-apps-are-not-banned
 ---
 <p><b>UPDATE 11/28 4:45 PM:</b><br />
 <a href="http://radioinsight.com/2010/apple-is-not-banning-all-radio-apps/">Lance Venta of Radio Insight</a> is following up on the possibility that <a href="http://airkast.com/">AirKast</a> may also have been banned as well.  In the <a href="http://itunes.apple.com/WebObjects/MZStore.woa/wa/viewArtistSeeAll?dkId=11&ids=334654363&softwareType=iPhone">AirKast store</a> where 277 apps are listed, the latest new release is dated 10/30.  (Coincidentally, their last app was for 'KNUE', which is a station I grew up listening to in Tyler, TX.)</p>

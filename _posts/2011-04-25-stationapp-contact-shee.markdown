@@ -6,6 +6,7 @@ categories:
 - Mobile
 - iPhone
 author: farski
+permalink: /2011/04/25/stationapp-contact-shee
 ---
 <p><!-- p.p1 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica} p.p2 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica; min-height: 14.0px} -->Last week we decided to update the Photoshop file we provide to radio stations to allow them to customize the look of our core station iPhone app. There were two main problems with the version we had been using, the first being simply the organization of the layers. There was no standardized mapping of layers in the file to the individual files we need to use in the final app. The other problem was that our process for breaking the file down into its component parts was extremely time consuming. We were using an AppleScript that had been built in-house which extracted specific layers from the document, one-by-one. Additionally, we were maintaining low-res and high-res versions of the template for retina and standard displays.</p>
 <p>The solution we decided to implement isn't perfect, but it dramatically speeds up the processing step on our end, allows for a much more sensible organization of the component graphics within the document, and provides a buffer between what the station designer is doing on their end and what we're doing on our end.</p>

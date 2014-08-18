@@ -7,6 +7,7 @@ categories:
 - Ruby
 - Rails
 author: rebeccanesson
+permalink: /2012/09/06/growing-the-ranks-of-female-devs
 ---
 <p>At PRX I am the only woman on a team of six.  With a team that size, it could be a coincidence that I'm the only one.  But it is not.  In most companies with six developers, zero would be female.  I'm here at PRX because of my skills but also because PRX cares about having and encouraging a diverse workplace.  We took that beyond our office a few weeks ago when we participated in a full-day free workshop focused on teaching Ruby on Rails development to interested women.  In one evening and one long day we taught 44 students enough so that by the end of the workshop they had each deployed their own web application live on the Internet.  You can read an interesting and thorough recap of the event, replete with pictures, feedback, etc., <a href="http://www.railsbridgeboston.org/blog/2012_aug_recap">here</a>.  Also, if you're interested in participating, we plan to do another workshop with the same format later this fall.  You can find out more on <a href=" http://www.railsbridgeboston.org/">our site</a>.</p>
 <p><img class="alignleft" title="Anita Teaching Ruby" src="http://www.railsbridgeboston.org/images/aug2012/anita.jpg" alt="" width="384" height="257" /></p>

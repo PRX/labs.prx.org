@@ -7,6 +7,7 @@ categories:
 - iPhone
 - Git
 author: rebeccanesson
+permalink: /2011/03/21/building-an-ios-application-platform
 ---
 <p>In the last several months PRX introduced a new product to stations: an iPhone public radio station app platform.  In the upcoming months the first several apps built on this platform will begin to appear in the iTunes app store.  The goal with these apps is to provide a highly customizable application that allows stations to showcase their content and their brand.  The challenge for the stations is that they are on constrained budgets and cannot pay the large app development costs usually associated with a custom built iPhone app.  The challenge for us to is provide them with a satisfying alternative that has a full feature set, a custom feel, and a price tag that they can afford.  To meet this challenge we've developed a platform that abstracts as much data as possible out of the application and streamlines the maintenance and updates of shared code between our applications.  Here's a laundry list of the techniques we're using to accomplish this.  </p>
 <h2>The Server Backend</h2>

@@ -5,6 +5,7 @@ date: '2011-07-05 14:32:34 -0400'
 categories:
 - Ruby
 author: chrisrhoden
+permalink: /2011/07/05/our-experience-with-chef
 ---
 <p>Part of the rollout for some automation features we have been working on is a requirement that we have a very scalable set of FTP servers. We've been using Amazon Web Services for many things at PRX, and the ability to spin up very cheap instances on both sides of the country is a huge win for performance and reliability. Unfortunately, there's a fair amount of work that needs to be done when a new server is spun up. Because the specifics of this work changes with some frequency and because we have a number of different kinds of servers we need to be able to spin up (and more are coming), the standard use of AMIs will be a nightmare to maintain.</p>
 <p>Enter <a href="http://www.opscode.com/chef/">Chef</a>.</p>

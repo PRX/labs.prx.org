@@ -5,6 +5,7 @@ date: '2012-01-13 15:10:38 -0500'
 categories:
 - Uncategorized
 author: kookster
+permalink: /2012/01/13/benjamen-walker-is-listening
 ---
 <p>It's his birthday, <a href="http://benjamenwalker.com" target="_blank">go leave him a message</a>.</p>
 <p>If you are too lazy for that link, just call: (877) 815-3013</p>

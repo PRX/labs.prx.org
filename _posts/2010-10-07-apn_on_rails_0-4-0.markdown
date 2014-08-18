@@ -6,6 +6,7 @@ date: '2010-10-07 17:21:06 -0400'
 categories:
 - Mobile
 author: rebeccanesson
+permalink: /2010/10/07/apn_on_rails_0-4-0
 ---
 <p>I'm excited to announce the release of version 0.4.0 of the APN_on_Rails gem!  You can get it on <a href="http://github.com/PRX/apn_on_rails">github</a> or <a href="https://rubygems.org/gems/apn_on_rails">rubygems</a>.</p>
 <p>When we started developing the <a href="http://www.prx.org/this-american-life-mobile">This American Life iPhone app</a> I was very happy to find <a href="http://www.metabates.com/">Mark Bates'</a> APN_on_Rails gem to help handle the server side aspects of communicating with Apple's Push Notification servers.  It handles all of the details of communicating with Apple in compliance with their authorization, data format, and feedback.  Since Mark was moving on to other projects and we were working actively with the gem, he handed it over to us.  We are now releasing a new version with some cool new features: </p>

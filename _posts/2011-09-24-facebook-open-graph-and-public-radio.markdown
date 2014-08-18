@@ -6,6 +6,7 @@ categories:
 - Social Media
 - Big Data
 author: kookster
+permalink: /2011/09/24/facebook-open-graph-and-public-radio
 ---
 <h3>Watch what you're doing</h3>
 <p>Love it or mock it, <a href="https://developers.facebook.com/docs/beta/" target="_blank">Facebook's on to something with the latest beta features for Open Graph</a>.  I'm not saying they are the first to realize there is more to the world than liking, as <a href="http://www.last.fm/help/faq?category=Scrobbling" target="_blank">scrobbling on last.fm</a> has been going on for awhile, and we even worked with Doc Searls to do <a href="http://cyber.law.harvard.edu/projectvrm/ListenLog" target="_blank">listen log</a>, which has the added (and hopefully inevitable) twist that you own your own data about what you hear/read/like/hate.  Imagine that, not just giving that kind of useful, private information away to some company?  But I digress.</p>

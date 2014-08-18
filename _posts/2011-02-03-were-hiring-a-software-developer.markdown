@@ -5,6 +5,7 @@ date: '2011-02-03 21:17:51 -0500'
 categories:
 - Jobs
 author: chrisrhoden
+permalink: /2011/02/03/were-hiring-a-software-developer
 ---
 <p>This is a cross-post from the fabulous <a href="http://blog.prx.org/">PRX Blog</a>.</p>
 <p><strong>You: Live on planet earth, are human, creative and a motivated developer.<br />

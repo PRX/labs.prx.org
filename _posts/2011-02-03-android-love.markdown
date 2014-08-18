@@ -6,6 +6,7 @@ categories:
 - Mobile
 - Android
 author: chrisrhoden
+permalink: /2011/02/03/android-love
 ---
 <p>Hey everyone! First, I want to apologize for what has been a much longer than anticipated break in posts on our technical blog. The tech team is keeping very busy, and it's difficult to remember to make a post sometimes. That said, we know it's very important for us to share what we are working on at a more technical level.</p>
 <p>Recently, I've been getting to play with Android much more and it's been making me very happy. Specifically, I have been working with the code provided by <a href="http://www.publicradioplayer.org/?p=1487">our Google Summer of Code student last year</a> which will (very shortly!) become the Public Radio Player port for Android Smartphones. We're very, very excited.</p>

@@ -5,6 +5,7 @@ date: '2012-02-29 14:53:30 -0500'
 categories:
 - Mobile
 author: driki
+permalink: /2012/02/29/pledge-your-support-for-mobile
 ---
 <p>Hi,</p>
 <p>I wanted to make a quick plug for a session that I'm organizing at the <a href="http://www.integratedmedia.org/conference">2012 Integrated Media Association conference</a> next week. The session is titled: <strong>Pledge your support for mobile</strong> and it will be both an overview of current pledge/donation practices and also a hands on working session. We'll review existing pledge and donation practices, what works and where people get hung up and then both the session panelists and attendees will attempt to streamline and significantly improve the pledge process for public radio and television stations.</p>

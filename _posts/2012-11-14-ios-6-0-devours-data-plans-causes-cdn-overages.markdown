@@ -7,6 +7,7 @@ categories:
 - iPhone
 - iPad
 author: chrisrhoden
+permalink: /2012/11/14/ios-6-0-devours-data-plans-causes-cdn-overages
 ---
 <p>We received a report from the folks at <a title="This American Life" href="http://thisamericanlife.org">This American Life</a> of extremely high bills from their CDN for the month of October. It is our belief after researching the problem that this is caused by bugs in the iOS 6 Audio Playback frameworks resulting in files being downloaded multiple times - this could result in dramatic overage charges for both content distributers and data plan customers.</p>
 <h3>Background</h3>

@@ -7,6 +7,7 @@ categories:
 - Git
 - Ruby
 author: chrisrhoden
+permalink: /2011/03/16/git-hooks-and-ruby
 ---
 <p>Happy Wednesday, everyone! I don't have very much time this week, so I'll keep this short and sweet: While we've historically used <a href="http://subversion.apache.org/">Subversion</a> at PRX, we have recently been migrating to <a href="http://git-scm.org">Git</a> to take advantage of some <a href="http://github.com">awesome tool</a>s and to better <a href="http://github.com/PRX">interact with the community</a>.</p>
 <p>We're also most comfortable with <a href="http://ruby-lang.org">Ruby</a>, so when I was asked to look into setting up a build server for our iOS apps, there wasn't much question as to how I would do it.</p>

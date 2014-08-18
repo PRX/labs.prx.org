@@ -6,6 +6,7 @@ categories:
 - Mobile
 - Android
 author: chrisrhoden
+permalink: /2012/03/27/announcing-playerhater-hate-the-player-not-the-game
 ---
 <p>TL; DR: Happy Tuesday! I wrote a library for working with background audio in Android apps. <a href="http://prx.org">PRX</a> is letting me <a href="http://github.com/PRX/PlayerHater">give it away</a>. Yay Android! Yay PRX!</p>
 <p>Let's talk a little history, shall we?</p>

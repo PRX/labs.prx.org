@@ -7,6 +7,7 @@ categories:
 - HTML5
 - Audio
 author: farski
+permalink: /2012/03/20/out-with-the-flash-in-with-the-flashy
 ---
 <p>FlowPlayer has been PRX's audio player of choice (ok, not really a choice) for a very long time. Even without a mobile-specific version of PRX.org, we've seen a dramatic increase in the number of requests for a way to audition pieces on an iPad. It's simply a matter of people's usage habits changing. While an HTML5 audio player has been on our radar since browsers began supporting the technology, demand finally reached a point where the transition became necessary.</p>
 <p>There are several fairly robust open source projects out there to help with the switch. MediaElement.js and jPlayer were the two main contenders, with jPlayer winning out do to internal familiarity. Both work by having a Flash fallback option when the native HTML5/JavaScript handling in a given browser can support the file. jPlayer allows you to define multiple source files to help with browser coverage. Currently our catalog is mp3, which IE8 (and lower), Firefox, and Opera do not support natively. We would need to re-encode our entire catalog to ogg or WebM to provide native support there, which may happen at some point, but for now relying on the Flash fallback in jPlayer is a perfectly acceptable solution.</p>

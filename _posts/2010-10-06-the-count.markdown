@@ -5,6 +5,7 @@ date: '2010-10-06 14:47:26 -0400'
 categories:
 - The Count
 author: chrisrhoden
+permalink: /2010/10/06/the-count
 ---
 <p>I recently got the opportunity to start playing with <a href="http://nodejs.org/">Node.JS</a> for an internal project here at PRX. It's code-named The Count, and it's named after <a href="http://www.youtube.com/watch?v=GMODAndeyNE">a fairly well known arithromaniacal vampire</a>.</p>
 <p>I suspect that a little bit of background is necessary. We have been collecting information about various activities on PRX.org for a while, but there are a few benefits to splitting these metrics out to a separate application. First, we don't need to worry quite so much about the performance of our application, and second, we don't need to add awkward api hooks to get meaningful tracking across a large and potentially growing number of properties. Additionally, our previous analytics solution was somewhat indistinguishable from our social actions system (the system that allows us to display recent activity next to users and pieces), which was adversely affecting the performance of both.</p>

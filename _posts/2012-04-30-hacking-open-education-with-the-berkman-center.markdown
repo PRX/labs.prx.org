@@ -5,6 +5,7 @@ date: '2012-04-30 12:06:43 -0400'
 categories:
 - Uncategorized
 author: rebeccanesson
+permalink: /2012/04/30/hacking-open-education-with-the-berkman-center
 ---
 <p>On April 13th PRX sent me to represent at the Berkman Center Open Education Resources hack day.  The hack day was a one-day event on the final day of a <a href="http://blogs.law.harvard.edu/oer2012/about/">three-day conference about Open Education Resources</a> among the Hewlett OER grantees.  <a href="http://cyber.law.harvard.edu/node/169">SJ Klein</a> and <a href="http://erhardtgraeff.com/">Erhardt Graeff</a> led a crew of ~60 OER enthusiasts--perhaps only 10-15% of whom were coders--through a process of generating and winnowing ideas, planning, execution, and an ultimate two-minute presentation to a panel of judges.  Although I'm no expert on hackdays, the relatively low ratio of coders seemed notable to me.  It resulted in a selection of hacks that mostly did not involve running code but comprised a set of projects with potential for real future value in the OER community.</p>
 <p>SJ and Erhardt divided us into four groups and asked us to winnow the big list of ideas brainstormed the night before down to our top ten, adding any new ones we had on the way.  Once we'd done this we combined with another group and did another round of winnowing.  Then we joined all together and did two rounds of straw polls on the remaining projects to help us self-select into working teams.  I'm not sure I can recall every project, but here's my best stab:</p>

@@ -5,6 +5,7 @@ date: '2012-08-07 14:49:33 -0400'
 categories:
 - Uncategorized
 author: chrisrhoden
+permalink: /2012/08/07/99-invisible-countdown-to-5000-backers
 ---
 <p>1) Go to the 99% Invisible page on Kickstarter (<a href="http://www.kickstarter.com/projects/1748303376/99-invisible-season-3" target="_blank">http://www.kickstarter.com/projects/1748303376/99-invisible-season-3</a>)</p>
 <p>2) Copy and paste this whole string into the address bar and press enter:</p>
