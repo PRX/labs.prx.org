@@ -9,7 +9,7 @@ layout: default
       {{ page.date | date: "%b %-d, %Y" }}
       {% if page.author %}
         <a href="https://github.com/{{ page.author }}">
-          <span class="avatar" style="background-image: url({{ site.posts[0].author | append: '.png' | prepend: '/images/avatars/' | prepend: site.baseurl }})"></span>{{ site.posts[0].author }}
+          <span class="avatar" style="background-image: url({{ page.author | append: '.png' | prepend: '/images/avatars/' | prepend: site.baseurl }})"></span>{{ page.author }}
         </a>
       {% endif %}
       {% if page.meta %} • {{ page.meta }}{% endif %}
