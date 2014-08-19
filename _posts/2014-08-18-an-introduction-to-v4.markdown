@@ -18,8 +18,10 @@ and an
 In this post, I'll give a whirlwind tour of where we are with these projects,
 where we're planning on going, and how we reached some of the fundamental
 decisions about the structure we are pursuing. I'll plan on saving some of the
-longer (and more interestng) stuff about the individual projects for future
+longer (and more interesting) stuff about the individual projects for future
 posts.
+
+<!--more-->
 
 ### some (non-technical) background
 

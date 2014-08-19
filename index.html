@@ -5,8 +5,17 @@ layout: default
 <div class="post">
 
   <header class="post-header">
-    <h1>{{ site.posts[0].title }}</h1>
-    <p class="meta">{{ site.posts[0].date | date: "%b %-d, %Y" }}{% if site.posts[0].author %} <a href="https://github.com/{{ site.posts[0].author }}"><span class="avatar" data-author="{{ site.posts[0].author }}"></span>{{ site.posts[0].author }}</a>{% endif %}{% if site.posts[0].meta %} • {{ site.posts[0].meta }}{% endif %}</p>
+    <h1><a href="{{site.posts[0].url | prepend: site.baseurl }}">{{ site.posts[0].title }}</a></h1>
+    <p class="meta">{{ site.posts[0].date | date: "%b %-d, %Y" }}
+      {% if site.posts[0].author %}
+        <a href="https://github.com/{{ site.posts[0].author }}">
+          <span class="avatar" style="background-image: url({{ site.posts[0].author | append: '.png' | prepend: '/images/avatars/' | prepend: site.baseurl }})"></span>{{ site.posts[0].author }}
+        </a>
+      {% endif %}
+      {% if site.posts[0].meta %}
+        • {{ site.posts[0].meta }}
+      {% endif %}
+    </p>
   </header>
 
   <article class="post-content">
@@ -26,7 +35,9 @@ layout: default
           <div class="meta">
             <span class="post-date">{{ post.date | date: "%b %-d, %Y" }}</span>
             {% if post.author %}
-              <a href="https://github.com/{{ post.author }}"><span class="avatar" data-author="{{ post.author }}"></span>{{ post.author }}</a>
+              <a href="https://github.com/{{ post.author }}">
+                <span class="avatar" style="background-image: url({{ post.author | append: '.png' | prepend: '/images/avatars/' | prepend: site.baseurl }})"></span>{{ post.author }}
+              </a>
             {% endif %}
           </div>
           <a class="post-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>

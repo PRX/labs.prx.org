@@ -11,3 +11,4 @@ github_username:  PRX
 # Build settings
 markdown: kramdown
 permalink: pretty
+excerpt_separator: <!--more-->
