@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "building an email newsletter from scratch."
+title:  "building an email newsletter from scratch"
 date:   2014-08-18 11:09:03
 categories: audience
 author: driki
