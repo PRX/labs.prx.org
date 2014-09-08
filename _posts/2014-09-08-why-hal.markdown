@@ -22,14 +22,14 @@ Here's why.
 
 To start, when I say hypermedia API, the most important part to me is that API
 responses link to related documents. Rather than needing to approach the API
-with a pre-defined idea of the structure of the API, clients are able to behave
-the way that people do on the web - land on a document, and click links until
-the right page has been found.
+with a pre-defined idea of the structure, clients are able to behave
+the way that people do on the web – one might land on a document and follow links
+until the information one is looking for has been found.
 
 While we've been exploring the potential structure of the API and data contained
 in it, much has changed. By having an API which encodes its structure as part of
 the document, we're able to rearrange and re-structure things with incredible
-levels of flexibility – we can even link between different loigical applications
+levels of flexibility – we can even link between different logical applications
 without requiring API clients to be aware of these seams.
 
 ### choosing HAL
