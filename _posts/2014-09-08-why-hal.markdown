@@ -1,0 +1,206 @@
+---
+layout: post
+title:  "why HAL?"
+date:   2014-09-08 09:13:03
+categories: api
+author: chrisrhoden
+---
+
+I'll get this right out of the way – some of what I'm about to say could be said
+about *hypermedia* APIs in general as easily as they can be said about HAL in
+particular. There are lots of competing "standards" in this space, including
+[Collection+JSON](http://amundsen.com/media-types/collection/),
+*[Collection.Doc+JSON](http://cdoc.io/)*, and the somewhat unfortunately named
+[JSON API](http://jsonapi.org/) (specifically, the hypermedia variant).
+
+At PRX, we chose to go with [HAL](http://stateless.co/hal_specification.html).
+Here's why.
+
+<!--more-->
+
+### choosing hypermedia
+
+To start, when I say hypermedia API, the most important part to me is that API
+responses link to related documents. Rather than needing to approach the API
+with a pre-defined idea of the structure of the API, clients are able to behave
+the way that people do on the web - land on a document, and click links until
+the right page has been found.
+
+While we've been exploring the potential structure of the API and data contained
+in it, much has changed. By having an API which encodes its structure as part of
+the document, we're able to rearrange and re-structure things with incredible
+levels of flexibility – we can even link between different loigical applications
+without requiring API clients to be aware of these seams.
+
+### choosing HAL
+
+Before we started building the API for
+[v4]({% post_url 2014-08-18-an-introduction-to-v4 %}), we were fully aware we
+wanted to build a hypermedia API (or at least *I* was – I'm willing to consider
+that my coworkers were not just giving the alternatives lip-service). It was [my
+boss](https://github.com/kookster) who originally proposed seeking out a
+standard, and to be honest, I was pretty hesitant. Standards are by definition
+slow to react to change, I argued, and I didn't want to spend too much of our
+limited time going down a path that ultimately made things harder rather than
+easier.
+
+When we looked over the alternatives, nearly all of them were highly designed,
+set up to cover many cases, and verbose. HAL stood out.
+
+#### what we would have built
+
+If you're not familiar with HAL, I recommend reading this excellent
+[primer](http://phlyrestfully.readthedocs.org/en/latest/halprimer.html). But one
+of the great things about HAL is that I can basically describe it super easily
+right here.
+
+A HAL `Document` is:
+
+  * A JSON object
+    * which contains a `Links` object under the `_links` key
+    * and optionally contains an `Embeds` object under the `_embedded` key
+
+A `Links` object is:
+
+  * A JSON object where keys correspond to `rel` (like `<link rel="..."/>`)
+    * containing either a `Link` or an array of `Link`s.
+
+An `Embeds` object is:
+
+  * A JSON object keyed by `rel` (like `Links`)
+    * containing either a `Document` or an array of `Document`s.
+
+A `Link` is:
+
+  * A JSON object with an `href` property.
+
+
+There are a couple of other features described in the spec and primer linked
+above, but they're not really necessary to start working with or building an
+API.
+
+What I loved about this structure is that it basically reflects what we would
+have built in the absence of a standard. We knew we needed a way to transmit
+links to related resources alongside documents, so the obvious thing to do is
+add a namespaced key to the document containing the links. Likewise when we got
+to embedded documents.
+
+While it might not have taken exactly the same shape (`_links` might have been
+`_head`, `rel`s might have been attributes on the links themselves), this
+low-ceremony formatting was the clear choice for me. It made it easy to imagine
+points of extension where we needed them. Best of all, the time commitment to
+understanding and implementing the API was low enough that, if we ever need to
+try something else, we're in a much better position than if we had chosen
+something with more significant overhead.
+
+### how we use it
+
+One of the important things to know about HAL is that it leaves a lot to be
+figured out by implementers. There are the usual things (how to generate/parse)
+which one needs to solve regardless of what API is being built. With HAL, though
+there are a few different ways to approach various problems.
+
+#### the server
+
+For our API, we're using [ROAR](https://github.com/apotonick/roar), which
+is a general (de)serialization library that includes out of the box support for
+JSON-HAL. While we've made some changes to the way that ROAR generates our JSON,
+the changes we made were for the purposes of caching and ROAR isn't doing
+anything special for us when it comes to HAL.
+
+We also made some changes that allow us to use a more easily readable DSL for
+our so-called representers. If you're interested, I'd recommend you explore
+[the v4 API representers](https://github.com/PRX/PRX.org-Backend/tree/master/app/representers).
+
+Lots of the models have an additional "min" representer which contains
+fewer attributes and especially fewer embedded documents by default. These "min"
+representers are often used in place of the so-called full representer when
+documents are embedded.
+
+#### the client
+
+For our javascript client, I implemented an
+[Angular.js module](https://github.com/PRX/PRX.org-Frontend/blob/master/src/common/angular-hal.js)
+which knows how to traverse HAL-based APIs and pull out embedded documents as
+necessary. The basic use of the library is:
+
+1. In the Angular `config` phase, set a root url with `ngHalProvider.setRooturl()`
+2. Additionally, define any mixins (more on this later) at this point with `ngHalProvider.mixin()`
+3. Once the `run` phase has started, `ngHal` can be injected and will correspond
+   to the root document.
+4. Links can be followed, and embedded documents traversed, using the same `follow`
+   method on documents. This method returns a promise. Promises also have a `follow`
+   method which allows you to treat them as resolved if you do not care about
+   the specific contents.
+
+I may write a more in-depth post about ngHal in the future.
+
+#### the json
+
+There are probably more decisions that we've made about the JSON we're
+generating than I can enumerate (or even remember), but I'll focus on a big one.
+
+How do we indicate what kind of thing is being represented?
+
+There were many options here. We could have added a `_type` attribute to our
+documents, but that would require us to download the document before we knew
+what we were getting. Instead, we opted to make use of the `profile` attribute
+on links.
+
+Specifically, on each of the JSON objects that represent links (the things with
+the `href` attributes), we add an additional `profile` attribute which contains
+a URL describing the type of document found on the other side of the link.
+
+Right now, we're using "http://meta.prx.org/schema" as a namespace for our
+types. There's nothing living there now (and there may never be), but we're
+making sure that the URLs themselves are human readable and descriptive.
+
+Doing so allows us to define "mixins" (mentioned above) on our clients – little
+pieces of functionality that are automatically added to documents with profiles
+that match a URL format we choose. For instance, we could define a mixin that
+applys to all PRX.org models with a mixin defined like so:
+
+{% highlight javascript %}
+ ngHalProvider.mixin("http://meta.prx.org/schema/*type", function (type) {
+   return {
+     type: function() return { type.join('/'); }
+   };
+ });
+{% endhighlight %}
+
+This leaves us with an interesting issue, though. Given a document, and not the
+context which linked to it, how are we able to determine which profile it should
+match?
+
+The way we solve this problem is to always include a link with the `self` rel
+which includes the canonical href for the document and, you guessed it, the
+profile of the document.
+
+Based on this, the above can be implemented in a somewhat more efficient way:
+
+{% highlight javascript %}
+ngHalProvider.mixin("http://meta.prx.org/schema/*any", {
+  type: function () { return this.link('self').profile; }
+});
+{% endhighlight %}
+
+### the upshot
+
+As we've progressed in building the API and the application which uses it, some
+interesting upshots have emerged.
+
+For one, it's fairly rare for us to define mixins with lots of functionality. This
+may change in the future, but for now (within the context of the angular app),
+the data mostly stands by itself. Often, the model structures defined in API
+clients are for interpreting and provinding behavior for the relationships
+between models. In a hypermedia API, these relationships are encoded as part of
+the data, which may account for the reduced need for client code.
+
+Additionally, the fact that the API is approaching self-documentation allows us
+to think about API design in a much more deliberate way. Rather than having the
+API act as a pass-through to the database, we might decide to structure the API
+to reflect the concepts we use to reason about the content.
+
+It seems likely that these early wins will be followed by more – some
+anticipated, and some not. I'm very happy with our decision to build a
+hypermedia API, and JSON-HAL has proven to work very well for our purposes.
