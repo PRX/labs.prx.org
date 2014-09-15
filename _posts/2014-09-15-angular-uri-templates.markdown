@@ -124,7 +124,7 @@ approached it in the past for our other open source libraries.
 
 Obviously, we went with #3 in this case, and it seems to have worked well.
 
-#1 has also worked well for us in the past, as with projects like
+\#1 has also worked well for us in the past, as with projects like
 [PlayerHater](https://github.com/PRX/PlayerHater), but in situations where
 linking to a local version of the library (as opposed to having to publish
 constant revisions while the API stabilizes) isn't a common part of the workflow
