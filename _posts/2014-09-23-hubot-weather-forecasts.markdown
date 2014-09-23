@@ -13,7 +13,7 @@ making sure no one gets caught out in bad weather.
 
 Like many organizations, we have made [group chat](https://www.hipchat.com/) a big part of how things get done at PRX. The ability to quickly build custom Hubot scripts to meet our specific needs has been great.
 
-Even though there are countless ways to check the weather now, between apps and widgets and Siris, we still noticed a problem. At the end of the day, after people had been focused on something for the last several hours, checking the weather only to see that it will start pouring in 10 minutes wasn't actually the useful.
+Even though there are countless ways to check the weather now, between apps and widgets and Siris, we still noticed a problem. At the end of the day, after people had been focused on something for the last several hours, checking the weather only to see that it will start pouring in 10 minutes wasn't actually that useful.
 
 Nearly everyone at PRX commutes on foot or has to wait for public transportation, so bad weather can be a real downer. Occasionally someone would notice an impending storm and send an alert over HipChat. This obviously wasn't a reliable system, but it did spark the notion that if a robot were continually checking the weather alerts could be much more reliable and accurate. That would ensure people see the alerts without having to do any work and could easily schedule around any problematic weather.
 
