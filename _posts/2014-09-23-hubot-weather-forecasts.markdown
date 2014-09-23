@@ -37,7 +37,7 @@ One of the keys to producing meaningful notifications was creating some persiste
 
 The most straightforward data to handle coming out of the API is a data set of entirely precipitation-free data points. The first thing I do with the data is add up the forecasted intensity of precipitation for every minute. If that total is 0 we can be reasonably sure that it won't be raining for at least an hour.
 
-If the weather looks clear, I look at the data point stored in the brain; if that data point was *not* clear weather, it means the last message sent to chat was about rain, so it would be nice to alert everyone that the weather has cleared up. If the data point in the brain was clear weather, since everyone already knows it's nice out.
+If the weather looks clear, I look at the data point stored in the brain; if that data point was *not* clear weather, it means the last message sent to chat was about rain, so it would be nice to alert everyone that the weather has cleared up. If the data point in the brain was clear weather nothing is sent, since everyone already knows it's nice out.
 
 ##### Red skies in the morning
 
