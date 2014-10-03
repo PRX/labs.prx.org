@@ -2,7 +2,7 @@
 layout: post
 title:  "JWT This Down"
 date:   2014-10-03
-categories: utility
+categories: applications
 author: eveadele
 ---
 
@@ -12,7 +12,7 @@ I’ve been working as a developer at PRX for about a month now, and for most of
 
 So, let’s talk a little bit about authentication in PRX.org v4. Authentication happens in a tiny little app that takes the user’s credentials, makes sure they’re correct, and then issues a JWT. Then the PRX.org backend reads the JWT using a [gem]("https://github.com/PRX/rack-prx_auth") we built that makes sure the token came from us and that it’s got all the necessary information in it. If everything’s the way it should be, the user gets to access the site. (My next project is regulating what users are allowed to do once they get there.)
 
-When a user enters their username and password, the authentication app creates an access token out of a JSON object. The JSON object contains the user ID, the time the token was issued, and when it will expire, plus some other stuff required by the [OpenID]("http://openid.net/specs/openid-connect-implicit-1_0.html") specification. (I won’t get into OpenID because it’s incredibly complicated and boring, but basically it’s a set of rules for requesting and granting access to apps.)
+When a user enters their username and password, the authentication app creates an access token out of a JSON object. The JSON object contains the user ID, the time the token was issued, and when it will expire, plus some other stuff required by the [OpenID]("http://openid.net/specs/openid-connect-implicit-1_0.html") specification. (I won’t get into OpenID because it’s incredibly complicated and boring, but basically it’s a set of rules for requesting proof that someone is who they say they are on online.)
 
 The thing about this JSON object is that there’s nothing secret in it. JWTs are not about protecting sensitive information. Anybody can decode a JWT and see the original JSON. We used a gem called [JSON::JWT]("https://github.com/nov/json-jwt") (Good name, right?) in which all you have to do to decode a JWT is pass the decode method the symbol :skip_verification. This is nice because when we read the JWT later, we can decode it first to see whether we should even bother verifying it. If it says right there in the JSON that the token was issued by someone else, we know not to grant access.
 
