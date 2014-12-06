@@ -56,3 +56,5 @@ Determining how much worse the weather needs to get before re-alerting is a bit 
 Additionally the robot will look for continuous blocks of clear weather (30 minutes or more) at the end of data sets that include some bad weather. These nearly always indicate prolonged breaks in the weather, and are basically as reliable as an all-clear block of data. Checking for them allows the robot to give more advanced notification about good times to hit the road.
 
 The code for our existing weather robot can be found in [this gist](https://gist.github.com/farski/7d4049ac401c16c3adc6). It's still in beta, so it's not particularly portable; if you want to use it you will need to plug in your coordinates, and the way it's posting messages to a specific room may not be suitable for everyone. You'll also need to add a Forecast.io API key to your environment.
+
+**Update** – Github user jeffbyrnes took this idea and is runnign with it. He packages the script up and has setup [a repository](https://github.com/jeffbyrnes/hubot-forecast) whera any further development will take place.
