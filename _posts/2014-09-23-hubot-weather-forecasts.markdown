@@ -57,4 +57,4 @@ Additionally the robot will look for continuous blocks of clear weather (30 minu
 
 The code for our existing weather robot can be found in [this gist](https://gist.github.com/farski/7d4049ac401c16c3adc6). It's still in beta, so it's not particularly portable; if you want to use it you will need to plug in your coordinates, and the way it's posting messages to a specific room may not be suitable for everyone. You'll also need to add a Forecast.io API key to your environment.
 
-**Update** – Github user jeffbyrnes took this idea and is runnign with it. He packages the script up and has setup [a repository](https://github.com/jeffbyrnes/hubot-forecast) whera any further development will take place.
+**Update** – Github user jeffbyrnes took this idea and is running with it. He packaged the script up and has setup [a repository](https://github.com/jeffbyrnes/hubot-forecast) where any further development will take place.
